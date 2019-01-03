@@ -1,6 +1,6 @@
 var mysql = require("mysql");
 var keys = require("./keys");
-var common = require("../src/common");
+var common = require("../src/modules/common");
 
 var pool = mysql.createPool({
   host: keys.mysql.host,

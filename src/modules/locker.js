@@ -1,6 +1,6 @@
 var jwt = require("jsonwebtoken");
-const common = require("../src/common");
-const cert = require("../config/keys").secret;
+const common = require("./common");
+const cert = require("../../config/keys").secret;
 
 let data = {
   unlock: (request, response, next) => {

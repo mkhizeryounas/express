@@ -1,5 +1,4 @@
-const cert = require("../config/keys").secret;
-const keys = require("../config/keys");
+const keys = require("../../config/keys");
 const sha256 = require("sha256");
 const Joi = require("joi");
 
@@ -10,8 +9,8 @@ module.exports = {
   time: () => {
     return Math.floor(new Date() / 1000);
   },
-  pwd: str => {
-    return sha256(str + cert);
+  hash: str => {
+    return sha256(str + keys.secret);
   },
   validate: async (obj, schema) => {
     return new Promise((resolve, reject) => {

@@ -27,7 +27,7 @@ jobs:
     - name: Run deployment with dropspot
       run: |
         npm i -g dropspot@latest
-        npx dropspot deploy -u ${{ DROPSPOT_SERVER }} -t ${{ DROPSPOT_DEPLOYMENT_TOKEN }}
+        npx dropspot deploy -u $DROPSPOT_SERVER -t $DROPSPOT_DEPLOYMENT_TOKEN
       
       env:
         CI: true

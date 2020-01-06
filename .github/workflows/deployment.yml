@@ -20,7 +20,7 @@ jobs:
           registry: docker.io
       - name: Run deployment with dropspot
         run: |
-          npm i dropspot@latest
+          npm i dropspot-cli@latest
           npx dropspot deploy -u $DROPSPOT_SERVER -t $DROPSPOT_DEPLOYMENT_TOKEN
 
         env:

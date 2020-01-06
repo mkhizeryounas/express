@@ -14,16 +14,16 @@ jobs:
       - name: Publish to Registry
         uses: HurricanKai/Publish-Docker-Github-Action@master
         with:
-          name: docker.pkg.github.com/mkhizeryounas/express/express
+          name: mkhizeryounas/express
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.GH_PERSONAL_TOKEN }}
-          registry: docker.pkg.github.com
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.io
       - name: Run deployment with dropspot
         run: |
-          npm i dropspot-cli@latest
+          npm i dropspot@latest
           npx dropspot deploy -u $DROPSPOT_SERVER -t $DROPSPOT_DEPLOYMENT_TOKEN
 
         env:
           CI: true
           DROPSPOT_SERVER: ${{ secrets.DROPSPOT_SERVER }}
-          DROPSPOT_DEPLOYMENT_TOKEN: ${{ secrets.DROPSPOT_DEPLOYMENT_TOKEN_GITHUB }}
+          DROPSPOT_DEPLOYMENT_TOKEN: ${{ secrets.DROPSPOT_DEPLOYMENT_TOKEN }}

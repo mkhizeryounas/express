@@ -16,7 +16,7 @@ jobs:
         with:
           name: mkhizeryounas/express
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.GH_PERSONAL_TOKEN }}
           registry: docker.pkg.github.com
       - name: Run deployment with dropspot
         run: |

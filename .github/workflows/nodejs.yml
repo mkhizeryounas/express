@@ -1,4 +1,4 @@
-name: Node CI
+name: NodeJS Project Deployment
 
 on: 
   push:

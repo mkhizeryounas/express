@@ -20,10 +20,9 @@ jobs:
       uses: HurricanKai/Publish-Docker-Github-Action@master
       with:
         name: mkhizeryounas/express
-        tag: latest
         username: ${{ secrets.DOCKER_UESERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: docker.io
+#         registry: docker.io
     - name: Run deployment with dropspot
       run: |
         npm i -g dropspot@latest

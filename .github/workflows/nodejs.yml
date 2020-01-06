@@ -1,0 +1,33 @@
+name: Node CI
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: HurricanKai/Publish-Docker-Github-Action@master
+      with:
+        name: mkhizeryounas/express
+        tag: latest
+        username: ${{ secrets.DOCKER_UESERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: docker.io
+    - name: Run deployment with dropspot
+      run: |
+        npm i -g dropspot@latest
+        npx dropspot deploy -u ${{ DROPSPOT_SERVER }} -t ${{ DROPSPOT_DEPLOYMENT_TOKEN }}
+      
+      env:
+        CI: true

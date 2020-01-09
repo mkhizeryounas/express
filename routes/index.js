@@ -4,7 +4,7 @@ const db = require('../config/db');
 const locker = require('../src/modules/locker');
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  res.reply({ data: { title: 'Express Boilerplate with GitHub Actions.' } });
+  res.reply({ data: { title: 'Express Boilerplate with GitHub Actions...' } });
 });
 
 module.exports = router;

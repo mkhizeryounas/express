@@ -1,10 +1,21 @@
-var express = require('express');
-var router = express.Router();
-const db = require('../config/db');
-const locker = require('../src/modules/locker');
+const express = require('express');
+const router = express.Router();
+const { Product } = require('../models');
+
 /* GET home page. */
-router.get('/', async function(req, res, next) {
-  res.reply({ data: { title: 'Express Boilerplate with GitHub Actions & Jenkins..!' } });
+router.get('/', async function (req, res, next) {
+  try {
+    let data = await Product.create({
+      name: 'token',
+      sku: 'sd001',
+    });
+    console.log('data', data);
+    res.reply({
+      data: data,
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
